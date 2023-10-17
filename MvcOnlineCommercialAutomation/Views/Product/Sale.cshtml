@@ -1,0 +1,41 @@
+﻿@model MvcOnlineCommercialAutomation.Models.Entities.SaleTransaction
+@{
+    ViewBag.Title = "Sale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satış Yap</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Ürün ID</label>
+    <input type="text" name="ProductID" value="@ViewBag.v1" class="form-control" readonly />
+    <br />
+    <label>Personel Adı</label>
+    @Html.DropDownListFor(x => x.EmployeeID, (List<SelectListItem>)ViewBag.lst1, new { @class = "form-control" })
+    <br />
+    <label>Cari ID</label>
+    @Html.TextBoxFor(x => x.CurrentAccountID, new { @class = "form-control" })
+    <br />
+    <label>Adet</label>
+    <input type="number" class="form-control" max="10" min="0" placeholder="adet girin" id="txt1" onchange="sum();" name="Quantity" />
+    <br />
+    <label> Birim Fiyat</label>
+    <input type="text" name="Price" value="@ViewBag.v2" class="form-control" id="txt2" onkeyup="sum();" />
+    <br />
+    <label>Toplam Fiyat</label>
+    <input type="text" name="Amount" value="0" class="form-control" id="txt3" readonly />
+    <br />
+    <button class="btn btn-primary">Satış Yap</button>
+</form>
+<br />
+<script>
+    function sum() {
+        var num1 = document.getElementById('txt1').value;
+        var num2 = document.getElementById('txt2').value;
+        var amount = parseInt(num1) * parseInt(num2);
+        if (!isNaN(amount)) {
+            document.getElementById('txt3').value = amount;
+        }
+    }
+</script>

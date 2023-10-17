@@ -1,0 +1,31 @@
+﻿@model MvcOnlineCommercialAutomation.Models.Entities.SaleTransaction
+
+@{
+    ViewBag.Title = "AddSaleTransaction";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Yeni Satış Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Ürün</label>
+    @Html.DropDownListFor(x => x.ProductID, (List<SelectListItem>)ViewBag.lst, new { @class = "form-control" })
+    <br />
+    <label>Cari</label>
+    @Html.DropDownListFor(x => x.CurrentAccountID, (List<SelectListItem>)ViewBag.lst2, new { @class = "form-control" })
+    <br />
+    <label>Personel</label>
+    @Html.DropDownListFor(x => x.EmployeeID, (List<SelectListItem>)ViewBag.lst3, new { @class = "form-control" })
+    <br />
+    <label>Adet</label>
+    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+    <br />
+    <label>Fiyat</label>
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    <label>Toplam Tutar</label>
+    @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-info">Satış Yap</button>
+</form>

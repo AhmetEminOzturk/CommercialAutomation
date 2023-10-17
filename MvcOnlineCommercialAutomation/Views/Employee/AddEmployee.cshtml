@@ -1,0 +1,26 @@
+﻿@model MvcOnlineCommercialAutomation.Models.Entities.Employee
+@{
+    ViewBag.Title = "AddEmployee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Personel İşlemleri</h2>
+<br />
+@using (Html.BeginForm("AddEmployee", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form class="form-group" method="post">
+        <label>Personel Adı</label>
+        @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+        <br />
+        <label>Personel Soyad</label>
+        @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
+        <br />
+        <label>Personel Departman</label>
+        @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+        <br />
+        <label>Personel Görsel</label>
+        <input type="file" name="EmployeeImage" />
+        <br />
+        <button class="btn btn-outline-info">Kaydet</button>
+    </form>
+}

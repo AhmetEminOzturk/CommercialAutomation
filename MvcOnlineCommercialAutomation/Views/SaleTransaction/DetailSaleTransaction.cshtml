@@ -1,0 +1,39 @@
+﻿@using MvcOnlineCommercialAutomation.Models.Entities
+@model List<SaleTransaction>
+
+@{
+    ViewBag.Title = "DetailSaleTransaction";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satış Detayı</h2>
+<br />
+<table class="table table-condensed">
+    <tr>
+        <th>Satış ID</th>
+        <th>Ürün</th>
+        <th>Cari</th>
+        <th>Personel</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SaleID</td>
+            <td>@item.Product.ProductName</td>
+            <td>@item.CurrentAccount.CurrentAccountName @item.CurrentAccount.CurrentAccountSurname</td>
+            <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+            <td>@item.Price</td>
+            <td>@item.Quantity</td>
+            <td>@item.Amount</td>
+            <td>@item.Date.ToShortDateString()</td>
+        </tr>
+    }
+</table>
+<button class="btn btn-primary">Yazdır</button>
+
+

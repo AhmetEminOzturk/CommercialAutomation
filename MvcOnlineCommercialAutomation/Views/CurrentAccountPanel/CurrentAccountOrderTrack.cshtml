@@ -1,0 +1,24 @@
+﻿@using MvcOnlineCommercialAutomation.Models.Entities
+@model List<ShipmentTrack>
+@{
+    ViewBag.Title = "CurrentAccountOrderTrack";
+    Layout = "~/Views/Shared/_CurrentAccountLayout.cshtml";
+}
+@{int count = 0;}
+<br />
+<table class="table table-striped">
+    <tr>
+        <th></th>
+        <th>Açıklama</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@x.Description</td>
+            <td>@x.Date</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,56 @@
+﻿@using MvcOnlineCommercialAutomation.Models.Entities
+@model List<SaleTransaction>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Personel</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SaleID</td>
+            <td>@item.Product.ProductName</td>
+            <td>@item.CurrentAccount.CurrentAccountName @item.CurrentAccount.CurrentAccountSurname</td>
+            <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price</td>
+            <td>@item.Amount</td>
+            <td>@item.Date</td>
+            <td><a href="/SaleTransaction/UpdateSaleTransaction/@item.SaleID" class="btn btn-info">Güncelle</a></td>
+            <td><a href="/SaleTransaction/DetailSaleTransaction/@item.SaleID" class="btn btn-warning">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/SaleTransaction/AddSaleTransaction/" class="btn btn-success">Yeni Satış Yap</a>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $('#tbl1').dataTable({
+        "language": {
+
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+        }
+    });
+</script>

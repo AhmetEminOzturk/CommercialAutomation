@@ -1,0 +1,33 @@
+﻿@using MvcOnlineCommercialAutomation.Models.Entities
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Personel Listesi</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Personel Adı</th>
+        <th>Personel Soyadı</th>
+        <th>Departman</th>
+        <th>Güncelle</th>
+        <th>Satışlar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmployeeID</td>
+            <td>@item.EmployeeName</td>
+            <td>@item.EmployeeSurname</td>
+            <td>@item.Department.DepartmentName</td>
+            <td><a href="/Employee/UpdateEmployee/@item.EmployeeID" class="btn btn-info">Güncelle</a></td>
+            <td><a href="/Department/DepartmentEmployeeSales/@item.EmployeeID" class="btn btn-warning">Detaylar</a></td>
+            <th></th>
+        </tr>
+    }
+</table>
+<a href="/Employee/AddEmployee/" class="btn btn-success">Personel Ekle</a>
+

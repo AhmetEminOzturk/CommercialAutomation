@@ -1,0 +1,26 @@
+﻿@model MvcOnlineCommercialAutomation.Models.Entities.CurrentAccount
+@{
+    ViewBag.Title = "UpdateCurrentAccount";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Cari Güncelleme Paneli</h2>
+<br />
+<form method="post">
+    @Html.HiddenFor(x => x.CurrentAccountID)
+    <label>Cari Adı</label>
+    @Html.TextBoxFor(x => x.CurrentAccountName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CurrentAccountName, "", new { @style = "color:red" })
+    <br />
+    <label>Cari Soyadı</label>
+    @Html.TextBoxFor(x => x.CurrentAccountSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CurrentAccountSurname, "", new { @style = "color:red" })
+    <br />
+    <label>Cari Şehir</label>
+    @Html.TextBoxFor(x => x.CurrentAccountCity, new { @class = "form-control" })
+    <br />
+    <label>Cari Mail</label>
+    @Html.TextBoxFor(x => x.CurrentAccountMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-success">Kaydet</button>
+</form>

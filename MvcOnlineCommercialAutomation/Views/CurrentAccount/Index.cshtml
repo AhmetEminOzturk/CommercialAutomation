@@ -1,0 +1,36 @@
+﻿@using MvcOnlineCommercialAutomation.Models.Entities
+@model List<CurrentAccount>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Cari Listesi</h2>
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>Cari ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CurrentAccountID</td>
+            <td>@item.CurrentAccountName</td>
+            <td>@item.CurrentAccountSurname</td>
+            <td>@item.CurrentAccountCity</td>
+            <td>@item.CurrentAccountMail</td>
+            <td><a href="/CurrentAccount/DeleteCurrentAccount/@item.CurrentAccountID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/CurrentAccount/UpdateCurrentAccount/@item.CurrentAccountID" class="btn btn-info">Güncelle</a></td>
+            <td><a href="/CurrentAccount/GetSales/@item.CurrentAccountID" class="btn btn-warning">Satış Geçmişi</a></td>
+        </tr>
+    }
+</table>
+<a href="/CurrentAccount/AddCurrentAccount/" class="btn btn-primary">Yeni Cari Ekle</a>

@@ -1,0 +1,23 @@
+﻿@model MvcOnlineCommercialAutomation.Models.Entities.CurrentAccount
+@{
+    ViewBag.Title = "AddCurrentAccount";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Cari Sayfası</h2>
+<br />
+<form method="post">
+    <label>Cari Ad</label>
+    @Html.TextBoxFor(x => x.CurrentAccountName, new { @class = "form-control" })
+    <br />
+    <label>Cari Soyad</label>
+    @Html.TextBoxFor(x => x.CurrentAccountSurname, new { @class = "form-control" })
+    <br />
+    <label>Şehir</label>
+    @Html.TextBoxFor(x => x.CurrentAccountCity, new { @class = "form-control" })
+    <br />
+    <label>Mail</label>
+    @Html.TextBoxFor(x => x.CurrentAccountMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-primary">Ekle</button>
+</form>
